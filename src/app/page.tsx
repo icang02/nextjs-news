@@ -1,3 +1,6 @@
+import Hero from "@/components/home/Hero";
+import LatestNews from "@/components/home/LatestNews";
+
 const WORDPRESS_API_URL = "https://berita.kendarikota.go.id/wp-json/wp/v2";
 
 async function getPosts(perPage: number = 2): Promise<any[]> {
@@ -19,19 +22,13 @@ async function getPosts(perPage: number = 2): Promise<any[]> {
 }
 
 export default async function Home() {
-  const posts = await getPosts();
+  const posts = await getPosts(8);
+  // console.log(posts);
 
   return (
-    <div className="w-full px-3 py-6 max-w-6xl mx-auto">
-      <ul className="list-disc">
-        {posts.map((item) => (
-          <li key={item.id}>
-            <a target="_blank" href={item.link} className="hover:underline">
-              {item.title.rendered}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Hero latestNews={posts} />
+      <LatestNews latestNews={posts} />
+    </>
   );
 }
