@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FaRegClock, FaRegEye, FaShare } from "react-icons/fa";
+import { FaRegEye, FaShare } from "react-icons/fa";
+import { MdDateRange } from "react-icons/md";
 
 const CardNewsSm = ({ news, isPopular, iconShared, index }: any) => {
   return (
@@ -25,8 +26,14 @@ const CardNewsSm = ({ news, isPopular, iconShared, index }: any) => {
         </Link>
         <p className="text__other mt-1.5 text-[10px] lg:text-[10px] font-normal flex items-center space-x-3 lg:space-x-4">
           <span className="flex items-center space-x-1">
-            <FaRegClock className="opacity-70" />
-            <span>{news.date}</span>
+            <MdDateRange className="opacity-70 -mt-0.5" />
+            <span>
+              {new Date(news.date).toLocaleDateString("id-ID", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}
+            </span>
           </span>
           <span className="flex items-center space-x-1">
             <FaRegEye className="opacity-70 -mt-0.5" />

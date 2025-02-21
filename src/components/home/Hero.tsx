@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, EffectFade } from "swiper/modules";
-import { FaAngleLeft, FaAngleRight, FaClock } from "react-icons/fa";
+import { Navigation, EffectFade, Autoplay } from "swiper/modules";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-
-import "swiper/css";
-import "swiper/css/effect-fade";
+import { MdDateRange } from "react-icons/md";
 
 const Hero = ({ latestNews }: any) => {
   const [slide, setSlide] = useState(1);
@@ -20,14 +18,22 @@ const Hero = ({ latestNews }: any) => {
   return (
     <div className="relative">
       <Swiper
-        modules={[Navigation, EffectFade]}
+        modules={[Navigation, EffectFade, Autoplay]}
         effect="fade"
-        speed={700}
+        speed={850}
+        loop
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        onSlideChange={(swiper) => setSlide(swiper.activeIndex + 1)}
+        onSlideChange={(swiper) => {
+          const currentSlide = swiper.activeIndex + 1;
+          setSlide(currentSlide);
+        }}
         className="swiper"
       >
         {latestNews.slice(0, 3).map((item: any, i: any) => (
@@ -47,16 +53,12 @@ const Hero = ({ latestNews }: any) => {
                   {/* Navigation Buttons */}
                   <div className="absolute top-3 right-4 md:left-0 md:top-16 flex items-center space-x-2">
                     <span
-                      className={`swiper-button-prev cursor-pointer rounded-full bg-white/25 size-10 md:size-12 flex justify-center items-center opacity-70 ${
-                        slide === 1 ? "cursor-auto" : "!opacity-100"
-                      }`}
+                      className={`swiper-button-prev cursor-pointer rounded-full bg-white/25 size-10 md:size-12 flex justify-center items-center opacity-70 hover:opacity-90`}
                     >
                       <FaAngleLeft className="text-white/90" />
                     </span>
                     <span
-                      className={`swiper-button-next cursor-pointer rounded-full bg-white/25 size-10 md:size-12 flex justify-center items-center ${
-                        slide === 3 ? "opacity-70 cursor-auto" : ""
-                      }`}
+                      className={`swiper-button-next cursor-pointer rounded-full bg-white/25 size-10 md:size-12 flex justify-center items-center opacity-70 hover:opacity-90`}
                     >
                       <FaAngleRight className="text-white/90" />
                     </span>
@@ -80,10 +82,16 @@ const Hero = ({ latestNews }: any) => {
                       >
                         username
                       </a>
-                      &nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <span className="text-white/55">
-                        <FaClock className="inline-block mr-1" />
-                        {item.date}
+                        <MdDateRange className="inline-block mr-1" />
+                        <span>
+                          {new Date(item.date).toLocaleDateString("id-ID", {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </span>
                       </span>
                     </p>
                   </div>
@@ -98,7 +106,14 @@ const Hero = ({ latestNews }: any) => {
                           slide === index + 1 ? "!text-white/60" : ""
                         }`}
                       >
-                        {item2.date}
+                        <MdDateRange className="inline-block mr-1" />
+                        <span>
+                          {new Date(item.date).toLocaleDateString("id-ID", {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </span>
                       </p>
                       <h6
                         className={`text-sm font-medium text-white/55 ${

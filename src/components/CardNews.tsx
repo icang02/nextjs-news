@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FaRegClock, FaRegEye } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
+import { MdDateRange } from "react-icons/md";
 
 function stripTags(html: any) {
   return html.replace(/<[^>]*>?/gm, "");
@@ -27,8 +28,14 @@ const CardNews = ({ news, previewContent }: any) => {
           </Link>
         </span>
         <span className="flex items-center space-x-1">
-          <FaRegClock className="opacity-70 -mt-0.5" />
-          <span>{news.date}</span>
+          <MdDateRange className="opacity-70 -mt-0.5" />
+          <span>
+            {new Date(news.date).toLocaleDateString("id-ID", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+            })}
+          </span>
         </span>
         <span className="flex items-center space-x-1">
           <FaRegEye className="opacity-70 -mt-0.5" />
@@ -36,7 +43,7 @@ const CardNews = ({ news, previewContent }: any) => {
         </span>
       </p>
       {previewContent && (
-        <p className="text__p mt-3 line-clamp-3 lg:line-clamp-2 text-xs font-normal text-zinc-600 leading-normal">
+        <p className="text__p mt-2.5 line-clamp-3 lg:line-clamp-2 text-xs font-normal text-zinc-600 leading-normal">
           {stripTags(news.content.rendered)}
         </p>
       )}

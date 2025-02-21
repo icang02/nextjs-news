@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isSearchMobile, setIsSearchMobile] = useState(false);
   const [themeMode, setThemeMode] = useState("light");
 
-  console.log(isNavMobile, isSearchMobile);
+  console.log("Logo nav : " + isNavMobile + " " + isSearchMobile);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", themeMode === "dark");
@@ -25,7 +25,7 @@ const Navbar = () => {
             setIsNavMobile(true);
             setIsSearchMobile(false);
           }}
-          className="block md:hidden text-xl cursor-pointer dark:text-gray-400"
+          className="block md:hidden text-lg cursor-pointer text-zinc-500 dark:text-gray-400"
         >
           <FaBars />
         </span>
@@ -56,10 +56,10 @@ const Navbar = () => {
 
         {/* Logo search mobile */}
         <span
-          className="block lg:hidden text-xl cursor-pointer w-7 dark:text-gray-400"
+          className="block lg:hidden text-lg cursor-pointer w-7 text-zinc-500 dark:text-gray-400"
           onClick={() => setIsSearchMobile(true)}
         >
-          <FaSearch size={24} />
+          <FaSearch />
         </span>
 
         {/* Dark mode */}
@@ -67,14 +67,14 @@ const Navbar = () => {
           {themeMode === "dark" ? (
             <span
               onClick={() => setThemeMode("light")}
-              className="border border-gray-300 rounded-full size-9 text-lg hover:text-gray-500 transition cursor-pointer duration-300 ease-in-out flex justify-center items-center hover:bg-gray-600/5 dark:border-gray-700"
+              className="text-zinc-700 dark:text-zinc-400 border border-gray-300 rounded-full size-9 text-base hover:text-gray-500 transition cursor-pointer duration-300 ease-in-out flex justify-center items-center hover:bg-gray-600/5 dark:border-gray-700"
             >
               <FaSun />
             </span>
           ) : (
             <span
               onClick={() => setThemeMode("dark")}
-              className="border border-gray-300 rounded-full size-9 text-lg hover:text-gray-500 transition cursor-pointer duration-300 ease-in-out flex justify-center items-center hover:bg-gray-600/5 dark:border-gray-700"
+              className="text-zinc-700 border border-gray-300 rounded-full size-9 text-base hover:text-gray-500 transition cursor-pointer duration-300 ease-in-out flex justify-center items-center hover:bg-gray-600/5 dark:border-gray-700"
             >
               <FaMoon />
             </span>

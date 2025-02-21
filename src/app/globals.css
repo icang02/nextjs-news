@@ -18,12 +18,21 @@
 
   /* Typegraphy */
   .text__title {
-    @apply text-zinc-700 dark:text-gray-200
+    @apply text-zinc-800 dark:text-gray-200
   }
   .text__p {
-    @apply text-zinc-600 dark:text-gray-300
+    @apply text-zinc-700 dark:text-gray-300
   }
   .text__other {
-    @apply text-zinc-500 dark:text-gray-300
+    @apply text-zinc-600 dark:text-gray-300
   }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
