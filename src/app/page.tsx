@@ -1,6 +1,6 @@
 const WORDPRESS_API_URL = "https://berita.kendarikota.go.id/wp-json/wp/v2";
 
-export async function getPosts(perPage: number = 2): Promise<any[]> {
+async function getPosts(perPage: number = 2): Promise<any[]> {
   try {
     const response = await fetch(
       `${WORDPRESS_API_URL}/posts?per_page=${perPage}`
@@ -26,7 +26,7 @@ export default async function Home() {
       <ul className="list-disc">
         {posts.map((item) => (
           <li key={item.id}>
-            <a href={item.link} className="hover:underline">
+            <a target="_blank" href={item.link} className="hover:underline">
               {item.title.rendered}
             </a>
           </li>
