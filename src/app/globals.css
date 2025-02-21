@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .nav__link {
+    @apply text-[14px] text-[#313131] font-bold uppercase relative w-fit block after:block after:content-[''] after:absolute after:h-[2.5px] after:bg-[#FF5000] after:w-[80%] after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left;
+  }
+  .active {
+    @apply w-fit block after:block after:content-[''] after:absolute after:h-[2.5px] after:bg-[#FF5000] after:w-[80%] after:scale-x-100 after:transition after:duration-300 after:origin-left;
+  }
+  .bline {
+    @apply border border-red-500;
+  }
+  .gap__card {
+    @apply gap-y-4 lg:gap-y-6;
+  }
+}
