@@ -13,7 +13,7 @@ const LatestNews = ({ latestNews, penghargaanNews }: any) => {
         <div className="grid grid-cols-6 gap-7">
           <div className="col-span-6 md:col-span-4">
             <div className="mb-5 md:mb-8 flex items-center space-x-3">
-              <span className="block size-3 bg-blue-700"></span>
+              <span className="block size-3 bg-sky-700"></span>
               <h6 className="text-lg md:text-xl font-semibold dark:text-gray-200">
                 Berita Terbaru
               </h6>
@@ -33,7 +33,7 @@ const LatestNews = ({ latestNews, penghargaanNews }: any) => {
 
           <div className="col-span-6 md:col-span-2">
             <div className="mb-5 md:mb-8 flex items-center space-x-3">
-              <span className="block size-3 bg-blue-700"></span>
+              <span className="block size-3 bg-sky-700"></span>
               <h6 className="text-lg md:text-xl font-semibold dark:text-gray-200">
                 Penghargaan
               </h6>

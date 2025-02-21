@@ -64,7 +64,7 @@ const Hero = ({ latestNews }: any) => {
                     </span>
                   </div>
 
-                  <button className="font-medium mb-5 lg:mb-7 text-xs rounded px-3 py-1 bg-white text-blue-700">
+                  <button className="font-medium mb-5 lg:mb-6 text-xs rounded px-3 py-1 bg-white text-blue-700">
                     Berita
                   </button>
                   <div className="w-[90%]">

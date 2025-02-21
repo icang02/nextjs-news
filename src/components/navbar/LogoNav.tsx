@@ -32,7 +32,11 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link href="/">
-          <img src="/img/logo.png" alt="logo" className="w-44 lg:w-48" />
+          <img
+            src={themeMode == "light" ? "/img/logo-hitam.svg" : "/img/logo.svg"}
+            alt="logo"
+            className="w-44 lg:w-48"
+          />
         </Link>
 
         {/* Search */}
@@ -67,7 +71,7 @@ const Navbar = () => {
           {themeMode === "dark" ? (
             <span
               onClick={() => setThemeMode("light")}
-              className="text-zinc-700 dark:text-zinc-400 border border-gray-300 rounded-full size-9 text-base hover:text-gray-500 transition cursor-pointer duration-300 ease-in-out flex justify-center items-center hover:bg-gray-600/5 dark:border-gray-700"
+              className="text-zinc dark:text-accent border border-gray-300 rounded-full size-9 text-base hover:text-gray-500 transition cursor-pointer duration-300 ease-in-out flex justify-center items-center hover:bg-gray-600/5 dark:border-gray-700"
             >
               <FaSun />
             </span>

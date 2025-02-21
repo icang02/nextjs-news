@@ -20,7 +20,7 @@ const CardNewsSm = ({ news, isPopular, iconShared, index }: any) => {
       <div className="w-full">
         <Link
           href={`/${news.link}`}
-          className="text__title text-[13px] line-clamp-2 font-medium tracking-wide leading-tight lg:leading-snug hover:underline"
+          className="text__title text-[13px] line-clamp-2 font-medium tracking-wide leading-tight lg:leading-snug hover:underline hover:text-accent-dark hover:dark:text-accent"
         >
           {news.title.rendered}
         </Link>

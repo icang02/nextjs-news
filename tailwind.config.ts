@@ -12,6 +12,9 @@ export default {
       colors: {
         "dark-primary": "#111928",
         "dark-secondary": "#1F2839",
+        main: "#1A3C61",
+        accent: "#EDA51D",
+        "accent-dark": "#EE9705",
       },
     },
   },

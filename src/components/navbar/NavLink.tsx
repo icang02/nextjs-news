@@ -19,7 +19,7 @@ const NavLink = () => {
               <a
                 key={index}
                 href={link.url}
-                className={`text-white/90 text-[10px] md:text-xs text-nowrap font-medium tracking-wider hover:text-white/100 transition ease-in-out duration-300`}
+                className={`text-white/90 text-[10px] md:text-xs text-nowrap font-medium tracking-wider hover:text-accent transition ease-in-out duration-300`}
               >
                 {link.name}
               </a>

@@ -16,7 +16,7 @@ const CardNews = ({ news, previewContent }: any) => {
       />
       <Link
         href={`/${news.link}`}
-        className="text__title mt-3.5 block text-base font-medium tracking-wide leading-tight hover:underline"
+        className="text__title mt-3.5 block text-base font-medium tracking-wide leading-tight hover:underline hover:text-accent-dark hover:dark:text-accent"
       >
         {news.title.rendered}
       </Link>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/Footer";
+import ThemeButtonMobile from "@/components/ThemeButtonMobile";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700", "900"],
@@ -20,9 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${roboto.className} antialiased dark:bg-[#111928]`}>
+      <body
+        suppressHydrationWarning
+        className={`${roboto.className} antialiased dark:bg-[#111928]`}
+      >
+        <ThemeButtonMobile />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
