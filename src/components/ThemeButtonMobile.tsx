@@ -14,8 +14,6 @@ const ThemeButtonMobile = () => {
   const toggleTheme = () => {
     const newTheme = themeMode === "dark" ? "light" : "dark";
     setThemeMode(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
   return (

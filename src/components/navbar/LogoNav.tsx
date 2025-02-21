@@ -6,15 +6,12 @@ import { FaBars, FaSearch, FaSun, FaMoon } from "react-icons/fa";
 const Navbar = () => {
   const [isNavMobile, setIsNavMobile] = useState(false);
   const [isSearchMobile, setIsSearchMobile] = useState(false);
-  const [themeMode, setThemeMode] = useState(() => {
-    return localStorage.getItem("theme") || "light";
-  });
+  const [themeMode, setThemeMode] = useState("light");
 
   console.log("Logo nav : " + isNavMobile + " " + isSearchMobile);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", themeMode === "dark");
-    localStorage.setItem("theme", themeMode);
   }, [themeMode]);
 
   return (
