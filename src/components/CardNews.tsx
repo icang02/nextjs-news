@@ -1,10 +1,7 @@
+import { formatViews, stripTags } from "@/lib";
 import Link from "next/link";
 import { FaRegEye } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
-
-function stripTags(html: any) {
-  return html.replace(/<[^>]*>?/gm, "");
-}
 
 const CardNews = ({ news, previewContent }: any) => {
   return (
@@ -39,12 +36,12 @@ const CardNews = ({ news, previewContent }: any) => {
         </span>
         <span className="flex items-center space-x-1">
           <FaRegEye className="opacity-70 -mt-0.5" />
-          <span>{10}</span>
+          <span>{formatViews(news.views)}</span>
         </span>
       </p>
       {previewContent && (
         <p className="text__p mt-2.5 line-clamp-3 lg:line-clamp-2 text-xs font-normal text-zinc-600 leading-normal">
-          {stripTags(news.content.rendered)}
+          {stripTags(news.excerpt.rendered)}
         </p>
       )}
     </div>

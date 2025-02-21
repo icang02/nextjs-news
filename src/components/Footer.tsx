@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
             <p className="flex space-x-2 text-xs font-normal leading-normal -mt-0.5 lg:-mt-2.5">
               <span className="text-white/70">&#169; 2021-2025</span>
-              <Link href="/" className="text-accent font-bold hover:underline">
+              <Link href="/" className="text-white   font-bold hover:underline">
                 Dinas Komunikasi dan Informatika Kota Kendari
               </Link>
             </p>
@@ -44,7 +44,7 @@ const Footer = () => {
           {/* Navigation Links */}
           <div className="col-span-3 lg:col-span-1">
             <div className="mb-2.5 lg:mb-4 flex flex-col lg:flex-row items-start gap-2 lg:gap-4">
-              <p className="mt-0 lg:-mt-1 text-xs font-semibold text-accent">
+              <p className="mt-0 lg:-mt-1 text-xs font-semibold text-white">
                 Pintasan
               </p>
               <div className="h-0.5 lg:h-1 w-[56px] lg:w-full bg-gradient-to-l rounded-sm from-gray-400 to-gray-400"></div>
@@ -69,7 +69,7 @@ const Footer = () => {
           {/* Social Media */}
           <div className="col-span-3 lg:col-span-1">
             <div className="mb-2.5 lg:mb-4 flex flex-col lg:flex-row items-start gap-2 lg:gap-4">
-              <p className="mt-0 lg:-mt-1 text-xs font-semibold text-accent text-nowrap">
+              <p className="mt-0 lg:-mt-1 text-xs font-semibold text-white text-nowrap">
                 Sosial Media
               </p>
               <div className="h-0.5 lg:h-1 w-[77px] lg:w-full bg-gradient-to-l rounded-sm from-gray-400 to-gray-400"></div>

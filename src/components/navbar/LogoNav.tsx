@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FaBars, FaSearch, FaSun, FaMoon } from "react-icons/fa";
@@ -5,12 +6,15 @@ import { FaBars, FaSearch, FaSun, FaMoon } from "react-icons/fa";
 const Navbar = () => {
   const [isNavMobile, setIsNavMobile] = useState(false);
   const [isSearchMobile, setIsSearchMobile] = useState(false);
-  const [themeMode, setThemeMode] = useState("light");
+  const [themeMode, setThemeMode] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
 
   console.log("Logo nav : " + isNavMobile + " " + isSearchMobile);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", themeMode === "dark");
+    localStorage.setItem("theme", themeMode);
   }, [themeMode]);
 
   return (
@@ -33,7 +37,9 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/">
           <img
-            src={themeMode == "light" ? "/img/logo-hitam.svg" : "/img/logo.svg"}
+            src={
+              themeMode === "light" ? "/img/logo-hitam.svg" : "/img/logo.svg"
+            }
             alt="logo"
             className="w-44 lg:w-48"
           />
