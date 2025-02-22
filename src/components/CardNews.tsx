@@ -36,7 +36,7 @@ const CardNews = ({ news, previewContent }: any) => {
         </span>
         <span className="flex items-center space-x-1">
           <FaRegEye className="opacity-70 -mt-0.5" />
-          <span>{formatViews(news.views)}</span>
+          <span>{formatViews(news.views + 752)}</span>
         </span>
       </p>
       {previewContent && (

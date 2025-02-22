@@ -16,7 +16,7 @@ async function getPosts(
       : `${WORDPRESS_API_URL}/posts?per_page=${perPage}`;
 
     const response = await fetch(uri, {
-      next: { revalidate: 60 * 60 * 3 },
+      next: { revalidate: 3600 },
     });
 
     if (!response.ok) {

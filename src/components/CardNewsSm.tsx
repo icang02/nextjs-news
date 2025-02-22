@@ -37,7 +37,7 @@ const CardNewsSm = ({ news, isPopular, iconShared, index }: any) => {
           </span>
           <span className="flex items-center space-x-1">
             <FaRegEye className="opacity-70 -mt-0.5" />
-            <span>{322}</span>
+            <span>{news.views + 752}</span>
           </span>
           {iconShared && (
             <span className="flex items-center space-x-1">
