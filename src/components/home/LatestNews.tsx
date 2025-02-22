@@ -5,6 +5,9 @@ import CardNewsSm from "@/components/CardNewsSm";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { MdDateRange } from "react-icons/md";
+import { Post } from "@/types/post";
+import HeadlineTitle from "../HeadlineTitle";
+import Link from "next/link";
 
 const LatestNews = ({ latestNews, penghargaanNews }: any) => {
   return (
@@ -12,14 +15,9 @@ const LatestNews = ({ latestNews, penghargaanNews }: any) => {
       <div className="container max-w-6xl mx-auto">
         <div className="grid grid-cols-6 gap-7">
           <div className="col-span-6 md:col-span-4">
-            <div className="mb-5 md:mb-8 flex items-center space-x-3">
-              <span className="block size-3 bg-sky-700"></span>
-              <h6 className="text-lg md:text-xl font-semibold dark:text-gray-200">
-                Berita Terbaru
-              </h6>
-            </div>
+            <HeadlineTitle title="Berita Terbaru" />
             <div className="grid grid-cols-2 gap-x-7 gap__card">
-              {latestNews.map((item: any, i: any) => (
+              {latestNews.map((item: Post, i: number) => (
                 <div key={i} className="col-span-2 lg:col-span-1">
                   {i < 2 ? (
                     <CardNews previewContent={true} news={item} />
@@ -32,14 +30,9 @@ const LatestNews = ({ latestNews, penghargaanNews }: any) => {
           </div>
 
           <div className="col-span-6 md:col-span-2">
-            <div className="mb-5 md:mb-8 flex items-center space-x-3">
-              <span className="block size-3 bg-sky-700"></span>
-              <h6 className="text-lg md:text-xl font-semibold dark:text-gray-200">
-                Penghargaan
-              </h6>
-            </div>
+            <HeadlineTitle title="Penghargaan" />
             <div className="grid grid-cols-1 gap__card">
-              {penghargaanNews.slice(0, 5).map((item: any, i: any) => (
+              {penghargaanNews.slice(0, 5).map((item: Post, i: number) => (
                 <div key={i}>
                   <CardNewsSm news={item} />
                 </div>
@@ -51,7 +44,7 @@ const LatestNews = ({ latestNews, penghargaanNews }: any) => {
                 modules={[Autoplay]}
                 loop
                 autoplay={{
-                  delay: 2000,
+                  delay: 3200,
                   disableOnInteraction: false,
                 }}
                 speed={1000}
@@ -69,11 +62,14 @@ const LatestNews = ({ latestNews, penghargaanNews }: any) => {
 
                       <div className="p-5 relative z-20 text-white flex flex-col items-center justify-center h-full">
                         <span className="inline-block font-semibold mb-2 text-xs rounded px-3 py-1 bg-white text-blue-700">
-                          Penghargaan
+                          {item._embedded["wp:term"][0][0].name}
                         </span>
-                        <span className="cursor-pointer leading-tight text-center font-semibold hover:underline">
+                        <Link
+                          href={`/${item.slug}`}
+                          className="cursor-pointer leading-tight text-center font-semibold hover:underline"
+                        >
                           {item.title.rendered}
-                        </span>
+                        </Link>
                         <p className="mt-4 lg:mt-5 text-xs flex items-center space-x-1">
                           <MdDateRange />
                           <span>

@@ -1,3 +1,4 @@
+import { formatViews } from "@/lib";
 import Link from "next/link";
 import { FaRegEye, FaShare } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
@@ -19,7 +20,7 @@ const CardNewsSm = ({ news, isPopular, iconShared, index }: any) => {
       </div>
       <div className="w-full">
         <Link
-          href={`/${news.link}`}
+          href={`/${news.slug}`}
           className="text__title text-[13px] line-clamp-2 font-medium tracking-wide leading-tight lg:leading-snug hover:underline hover:text-accent-dark hover:dark:text-accent"
         >
           {news.title.rendered}
@@ -37,7 +38,7 @@ const CardNewsSm = ({ news, isPopular, iconShared, index }: any) => {
           </span>
           <span className="flex items-center space-x-1">
             <FaRegEye className="opacity-70 -mt-0.5" />
-            <span>{news.views + 752}</span>
+            <span>{formatViews(news.views + 752)}</span>
           </span>
           {iconShared && (
             <span className="flex items-center space-x-1">

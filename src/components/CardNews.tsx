@@ -12,7 +12,7 @@ const CardNews = ({ news, previewContent }: any) => {
         className="border dark:border-transparent w-full aspect-[4/2.5] object-cover object-center hover:brightness-75 transition ease-in"
       />
       <Link
-        href={`/${news.link}`}
+        href={`/${news.slug}`}
         className="text__title mt-3.5 block text-base font-medium tracking-wide leading-tight hover:underline hover:text-accent-dark hover:dark:text-accent"
       >
         {news.title.rendered}

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
 import ThemeButtonMobile from "@/components/ThemeButtonMobile";
+import NextTopLoader from "nextjs-toploader";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700", "900"],
@@ -26,6 +27,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${roboto.className} antialiased dark:bg-[#111928]`}
       >
+        <NextTopLoader color="#EDA51D" height={2} />
         <ThemeButtonMobile />
         <Navbar />
         {children}

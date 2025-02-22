@@ -1,6 +1,6 @@
 services:
   app:
-    image: nextjs-news:1.0
+    image: nextjs-news:v1
     build:
       context: ./
       dockerfile: Dockerfile

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const navLinks = [
   { name: "Beranda", url: "/" },
   { name: "Berita", url: "/" },
@@ -16,13 +18,13 @@ const NavLink = () => {
         <div className="relative -mx-4">
           <div className="flex items-center space-x-6 flex-nowrap overflow-x-scroll scrollbar-hide px-4">
             {navLinks.map((link, index) => (
-              <a
+              <Link
                 key={index}
                 href={link.url}
                 className={`text-white/90 text-[10px] md:text-xs text-nowrap font-medium tracking-wider hover:text-accent transition ease-in-out duration-300`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

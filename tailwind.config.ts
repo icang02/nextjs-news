@@ -9,6 +9,13 @@ export default {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "100%",
+          },
+        },
+      },
       colors: {
         "dark-primary": "#111928",
         "dark-secondary": "#1F2839",
@@ -18,5 +25,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 } satisfies Config;

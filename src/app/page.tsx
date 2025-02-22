@@ -1,10 +1,10 @@
 import Hero from "@/components/home/Hero";
 import LatestNews from "@/components/home/LatestNews";
+import { fields } from "@/types";
+import { Post } from "@/types/post";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
-
-const WORDPRESS_API_URL = "https://berita.kendarikota.go.id/wp-json/wp/v2";
 
 async function getPosts(
   perPage: number = 2,
@@ -12,8 +12,8 @@ async function getPosts(
 ): Promise<any[]> {
   try {
     const uri = categoryId
-      ? `${WORDPRESS_API_URL}/posts?categories=${219}&per_page=${perPage}`
-      : `${WORDPRESS_API_URL}/posts?per_page=${perPage}`;
+      ? `${process.env.NEXT_PUBLIC_WP_API}/posts?categories=${categoryId}&per_page=${perPage}&_fields=${fields}&_embed`
+      : `${process.env.NEXT_PUBLIC_WP_API}/posts?per_page=${perPage}&_fields=${fields}&_embed`;
 
     const response = await fetch(uri, {
       next: { revalidate: 3600 },
@@ -32,9 +32,9 @@ async function getPosts(
 }
 
 export default async function Home() {
-  const posts = await getPosts(8);
-  const penghargaan = await getPosts(8, 219);
-  // console.log(posts);
+  const posts: Post[] = await getPosts(8);
+  const penghargaan: Post[] = await getPosts(8, 305);
+  // console.log(posts[0]._embedded["wp:term"][0]);
 
   return (
     <>

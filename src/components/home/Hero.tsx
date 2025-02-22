@@ -6,24 +6,25 @@ import { Navigation, EffectFade, Autoplay } from "swiper/modules";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { MdDateRange } from "react-icons/md";
+import { Post } from "@/types/post";
+import Link from "next/link";
 
-const Hero = ({ latestNews }: any) => {
+interface HeroProps {
+  latestNews: Post[];
+}
+
+const Hero = ({ latestNews }: HeroProps) => {
   const [slide, setSlide] = useState(1);
-  const router = useRouter();
-
-  const navigateToUrl = (url: string) => {
-    router.push(url);
-  };
 
   return (
     <div className="relative">
       <Swiper
         modules={[Navigation, EffectFade, Autoplay]}
         effect="fade"
-        speed={850}
+        speed={900}
         loop
         autoplay={{
-          delay: 3500,
+          delay: 3700,
           disableOnInteraction: false,
         }}
         navigation={{
@@ -36,8 +37,8 @@ const Hero = ({ latestNews }: any) => {
         }}
         className="swiper"
       >
-        {latestNews.slice(0, 3).map((item: any, i: any) => (
-          <SwiperSlide key={i}>
+        {latestNews.slice(0, 3).map((item: Post) => (
+          <SwiperSlide key={item.id}>
             <div
               className="relative bg-contain bg-top h-[300px] lg:h-[480px]"
               style={{
@@ -65,15 +66,15 @@ const Hero = ({ latestNews }: any) => {
                   </div>
 
                   <button className="font-medium mb-5 lg:mb-6 text-xs rounded px-3 py-1 bg-white text-blue-700">
-                    Berita
+                    {item._embedded["wp:term"][0][0].name}
                   </button>
                   <div className="w-[90%]">
-                    <h1
-                      onClick={() => navigateToUrl(`/${item.link}`)}
+                    <Link
+                      href={`/${item.slug}`}
                       className="leading-tight lg:leading-[1.3] cursor-pointer line-clamp-2 lg:line-clamp-3 hover:underline text-xl lg:text-4xl font-bold text-white"
                     >
                       {item.title.rendered}
-                    </h1>
+                    </Link>
                     <p className="text-[10px] lg:text-xs font-medium mt-4 lg:mt-7">
                       <span className="text-white/55">by</span>&nbsp;
                       <a
